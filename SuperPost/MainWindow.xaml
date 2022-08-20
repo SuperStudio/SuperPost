@@ -1,0 +1,207 @@
+﻿<chao:BaseWindow x:Class="SuperPost.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SuperPost"
+        mc:Ignorable="d"
+        xmlns:chao="https://gitee.com/secret/chao-controls"
+                 xmlns:hc="https://handyorg.github.io/handycontrol"
+        Title="SuperPost" Height="450" Width="800"
+                 MinHeight="300"
+                 MinWidth="300"
+                 Foreground="White"
+                 Background="#1E1E1E"
+                 WindowStartupLocation="CenterScreen"
+                 
+                 MouseLeave="Window_MouseLeave"
+                 SizeChanged="Window_SizeChanged"
+                 ContentRendered="Window_ContentRendered"
+                  Icon="pack://application:,,,/Resources/SuperPost-main.ico">
+    <chao:BaseWindow.Resources>
+
+
+    </chao:BaseWindow.Resources>
+    <Grid  >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="SidePanelWidth" Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Width="auto"  PreviewMouseLeftButtonUp="SizeChangeEnd"   PreviewMouseMove="SizeChanging">
+                <TabControl x:Name="SideTabControl" SelectedIndex="1" TabStripPlacement="Left" Style="{StaticResource FlatTabControl}" SelectionChanged="SideItem_SelectionChanged"   Background="#252526" Tag="#333333" ItemContainerStyle="{StaticResource FlatTabItem}">
+                    <TabItem Header="" Height="0"/>
+                    <TabItem  Foreground="White" Height="50" Padding="0" Width="50"  >
+                        <TabItem.Header >
+                            <Viewbox  Width="20" Height="auto"     VerticalAlignment="Center"       >
+                                <Path  VerticalAlignment="Center" HorizontalAlignment="Left"      Fill="White" Data="M953.342411 141.241379C953.312026 141.241379 953.37931 728.083791 953.37931 728.083791 953.37931 728.14313 70.657589 728.123657 70.657589 728.123657 70.687974 728.123657 70.62069 141.281245 70.62069 141.281245 70.62069 141.221923 953.342411 141.241379 953.342411 141.241379ZM0 728.083791C0 767.026723 31.652899 798.744346 70.657589 798.744346L953.342411 798.744346C992.425472 798.744346 1024 767.121902 1024 728.083791L1024 141.281245C1024 102.33833 992.347101 70.62069 953.342411 70.62069L70.657589 70.62069C31.574528 70.62069 0 102.243134 0 141.281245L0 728.083791ZM840.751492 963.941976C860.252849 963.941976 876.061837 948.132988 876.061837 928.631631L876.061837 926.987864C876.061837 907.486508 860.252849 891.677519 840.751492 891.677519L183.248508 891.677519C163.747151 891.677519 147.938163 907.486508 147.938163 926.987864L147.938163 928.631631C147.938163 948.132988 163.747151 963.941976 183.248508 963.941976 202.749881 963.941976 840.751492 963.941976 840.751492 963.941976ZM475.867772 892.499403 546.488461 892.499403 546.488461 798.744346 477.511539 798.744346 475.867772 892.499403Z" />
+                            </Viewbox>
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Margin="5">
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" Margin="2 0"      Style="{StaticResource    RoundNormalButton}" Width="25" Height="25" Tag="#3B3B3D" Foreground="White">
+                                    <Viewbox  Width="10" Height="auto" Margin="5"    >
+                                        <Path  VerticalAlignment="Center" HorizontalAlignment="Left"      Fill="White" Data="M426.666667 426.666667H85.546667A85.418667 85.418667 0 0 0 0 512c0 47.445333 38.314667 85.333333 85.546667 85.333333H426.666667v341.12c0 47.274667 38.186667 85.546667 85.333333 85.546667 47.445333 0 85.333333-38.314667 85.333333-85.546667V597.333333h341.12A85.418667 85.418667 0 0 0 1024 512c0-47.445333-38.314667-85.333333-85.546667-85.333333H597.333333V85.546667A85.418667 85.418667 0 0 0 512 0c-47.445333 0-85.333333 38.314667-85.333333 85.546667V426.666667z" />
+                                    </Viewbox>
+                                </Button>
+                                <ToggleButton Checked="ShowAllSide" Unchecked="HideAllSide" Grid.Column="1"   Margin="2 0" Background="Transparent" Padding="0"   Style="{StaticResource    FlatToggleButton}" Width="25" Height="25" Tag="#3B3B3D" Foreground="White">
+                                    <Viewbox  Width="15" Height="auto" Margin="5"   >
+                                        <Path  VerticalAlignment="Center" HorizontalAlignment="Left"      Fill="White" Data="M512 64C264.8 64 64 264.8 64 512s200.8 448 448 448 448-200.8 448-448S759.2 64 512 64z m0 640L240 432l45.6-45.6L512 613.6l226.4-226.4 45.6 45.6L512 704z" />
+                                    </Viewbox>
+                                </ToggleButton>
+                                <chao:SearchBox Grid.Column="2"  VerticalAlignment="Top" MinWidth="100"   Height="30" Margin="5" BorderBrush="LightGray" BorderThickness="1" Foreground="White" Background="Transparent" ShowSearchButton="False" ShowClearButton="True" PlaceHolder="筛选" PlaceHolderForeground="Gray"  />
+                            </Grid>
+
+                            <ScrollViewer Grid.Row="1" CanContentScroll="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                                <StackPanel x:Name="ToggleStackPanel" Orientation="Vertical">
+                                    <chao:TogglePanel   Header="1"    Style="{StaticResource SideTogglePanel}"  />
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Grid>
+
+                    </TabItem>
+
+                    <TabItem  Foreground="White" Height="50" Padding="0" Width="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" >
+                        <TabItem.Header>
+                            <Viewbox  Width="20" Height="auto"  VerticalAlignment="Center"  HorizontalAlignment="Left"     >
+                                <Path  VerticalAlignment="Center"      Fill="White" 
+                                        Data="M390.848 612.704C267.328 612.704 167.008 512.736 167.008 389.632 167.008 266.496 267.328 166.528 390.848 166.528 489.984 166.528 574.144 230.88 603.552 319.904 610.784 341.824 614.72 365.28 614.72 389.632 614.72 512.736 514.4 612.704 390.848 612.704M989.408 906.592C986.464 896.384 981.088 887.328 974.016 879.488 901.216 804.256 827.008 730.304 751.52 657.76 747.904 654.496 744.096 651.552 739.904 649.088 730.016 643.296 719.008 640.352 707.616 639.84L703.168 639.968 677.216 614.336 673.12 610.368C721.088 549.568 749.696 472.896 749.696 389.632 749.696 192.224 588.928 32 390.848 32 192.8 32 32 192.224 32 389.632 32 587.008 192.8 747.232 390.848 747.232 472.704 747.232 548.192 719.872 608.64 673.76L613.056 678.272 638.72 704.096 638.624 706.144C638.592 712.608 639.456 719.04 641.248 725.248 644.192 735.424 649.536 744.48 656.608 752.32 729.44 827.584 803.616 901.504 879.104 974.08 886.4 980.576 894.656 985.632 904 988.672 912.448 991.424 921.44 992.48 930.304 991.776 938.368 991.104 946.304 988.992 953.6 985.536 976.608 974.688 991.776 951.04 992 925.664 992.064 919.232 991.168 912.768 989.408 906.592" />
+                            </Viewbox>
+                        </TabItem.Header>
+                        <Grid  Background="Black" Width="200">
+                        </Grid>
+
+                    </TabItem>
+
+                    <TabItem  Foreground="White" Height="50" Padding="0" Width="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" >
+                        <TabItem.Header>
+                            <Viewbox  Width="20" Height="auto"       >
+                                <Path  VerticalAlignment="Center" HorizontalAlignment="Left"      Fill="White" Data="M960.620725 848.835765H279.118607a127.096471 127.096471 0 0 0-122.88-94.750118c-70.113882 0-127.036235 56.621176-127.036235 126.313412s56.922353 126.373647 126.976 126.373647c59.030588 0 108.845176-40.357647 122.940235-94.750118h681.502118a31.683765 31.683765 0 1 0 0-63.247059zM156.178372 943.585882c-34.996706 0-63.488-28.310588-63.488-63.186823 0-34.816 28.491294-63.186824 63.488-63.186824 35.056941 0 63.488 28.310588 63.488 63.186824 0 34.816-28.431059 63.186824-63.488 63.186823zM961.223078 493.327059h-97.882353a127.096471 127.096471 0 0 0-245.880471 0H65.102607a31.683765 31.683765 0 0 0-31.804235 31.563294c0 17.468235 14.215529 31.563294 31.744 31.563294h552.357647a127.096471 127.096471 0 0 0 245.940706 0h97.882353a31.623529 31.623529 0 1 0 0-63.126588z m-220.822589 94.750117c-34.996706 0-63.488-28.310588-63.488-63.247058 0-34.816 28.491294-63.126588 63.488-63.126589 34.996706 0 63.488 28.310588 63.488 63.186824 0 34.816-28.491294 63.186824-63.488 63.186823zM156.178372 295.695059c59.030588 0 108.845176-40.357647 122.940235-94.750118h681.502118a31.623529 31.623529 0 1 0 0-63.186823H279.118607A127.096471 127.096471 0 0 0 29.202372 169.381647c0 69.632 56.922353 126.313412 126.976 126.313412z m0-189.500235c35.056941 0 63.488 28.310588 63.488 63.186823 0 34.816-28.431059 63.126588-63.488 63.126588-34.996706 0-63.488-28.310588-63.488-63.126588 0-34.936471 28.491294-63.247059 63.488-63.247059z" />
+                            </Viewbox>
+                        </TabItem.Header>
+                        <Grid  Background="Black" Width="200">
+                        </Grid>
+
+                    </TabItem>
+
+                </TabControl>
+
+                <Button Click="ShowSettings"  HorizontalAlignment="Left" VerticalAlignment="Bottom"  Tag="#3B3B3D" Foreground="White" Margin="5" Padding="5" Width="40" Height="40" Style="{StaticResource RoundNormalButton}">
+                    <Viewbox  Width="20" Height="auto"        >
+                        <Path  VerticalAlignment="Center" HorizontalAlignment="Left"      Fill="White" 
+                               Data="M389.909978 512.000146a122.090022 122.090022 0 1 0 122.090022-121.563394 121.826708 121.826708 0 0 0-122.090022 121.563394z m0 0l541.754359 49.737129-9.450054-5.500341a50.761128 50.761128 0 0 1 0-88.181004l9.450054-5.383312A125.07425 125.07425 0 0 0 977.773581 291.401352l-40.696674-70.217123a126.215278 126.215278 0 0 0-172.002694-45.933701l-9.450054 5.383313A51.199985 51.199985 0 0 1 678.765667 136.367796v-10.883654A125.805678 125.805678 0 0 0 552.959988 0.000293h-81.539634a125.805678 125.805678 0 0 0-126.010478 125.483849v10.912912a49.737129 49.737129 0 0 1-20.743308 40.959988 51.287757 51.287757 0 0 1-56.26147 3.335313l-10.152226-5.851427c-2.925713-1.726171-5.529598-3.218285-8.77714-4.710398a0.4096 0.4096 0 0 1-0.234057 0 125.542364 125.542364 0 0 0-162.113782 51.082957l-40.959988 70.217122A125.07425 125.07425 0 0 0 92.335663 462.263018l9.450054 5.500341a50.761128 50.761128 0 0 1 0 88.181003l-9.450054 5.383313A125.07425 125.07425 0 0 0 46.226419 732.59894l40.696674 70.217123a126.215278 126.215278 0 0 0 172.002694 45.904444l9.450054-5.41257a51.199985 51.199985 0 0 1 76.858492 44.324559v10.912911A125.805678 125.805678 0 0 0 471.186297 1024h81.393349a125.805678 125.805678 0 0 0 126.010478-125.48385v-10.883654a51.199985 51.199985 0 0 1 76.770721-44.090502l9.450054 5.500342a126.215278 126.215278 0 0 0 172.031951-45.933701l40.696674-70.217123a125.27905 125.27905 0 0 0-45.875187-171.154237z m122.090022 203.658914a203.600399 203.600399 0 1 1 204.419599-203.658914 204.156285 204.156285 0 0 1-204.419599 203.658914z m0 0" />
+                    </Viewbox>
+                    <Button.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="设置"/>
+                            <MenuItem Header="关于" Click="ShowAbout"/>
+                            <MenuItem Header="文档"/>
+                            <MenuItem Header="版本日志"/>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+
+            </Grid>
+            <Rectangle x:Name="dragRectangle" Focusable="True" MouseLeave="HideDrag" MouseEnter="ShowDrag"  Grid.Column="1" PreviewMouseMove="SizeChanging" PreviewMouseLeftButtonDown="SizeChangeBegin"  PreviewMouseLeftButtonUp="SizeChangeEnd"    Fill="Transparent" Cursor="SizeWE"  Width="4" Margin="-2 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Panel.ZIndex="5" Height="auto"  Style="{x:Null}"   />
+            <hc:TabControl  PreviewMouseLeftButtonUp="SizeChangeEnd"  PreviewMouseMove="SizeChanging" Grid.Column="1"  Visibility="Visible" Background="Transparent"    IsAnimationEnabled="True" ShowCloseButton="True" IsDraggable="True" IsTabFillEnabled="True"  BorderThickness="0"  >
+                <hc:TabItem Style="{StaticResource BaseHcTabItem}" Foreground="White"  Header="请求1" >
+                    <Grid     Background="#1E1E1E"  >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0"  Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <ComboBox Grid.Column="0" SelectedIndex="0"  Margin="5"  ItemsSource="{Binding HttpMethods}" />
+                            <chao:SearchBox Grid.Column="1"     Margin="10 5" BorderBrush="#326CF3" BorderThickness="1" Foreground="White" Background="Transparent" ShowSearchButton="False" ShowClearButton="True" PlaceHolder="请求接口" PlaceHolderForeground="Gray"  />
+                            <Button Grid.Column="2"  Margin="5" Style="{StaticResource FillButton}" Content="执行" Width="80" />
+                        </Grid>
+
+                        <chao:TogglePanel Header="请求" Grid.Row="1" Style="{StaticResource RequestTogglePanel}">
+                            <TabControl  Margin="5"  Background="Transparent" Style="{StaticResource FlatTabControl}" ItemContainerStyle="{StaticResource FlatTabItem}">
+                                <TabItem Header="参数" >
+                                    <ListBox  Style="{StaticResource NormalListBox}" Background="Black"  ItemContainerStyle="{StaticResource FlatListBoxItem}">
+                                        <ListBoxItem Content="id"/>
+                                        <ListBoxItem Content="id"/>
+                                        <ListBoxItem Content="id"/>
+                                    </ListBox>
+                                </TabItem>
+
+                                <TabItem Header="Headers"/>
+                                <TabItem Header="Body"/>
+                                <TabItem Header="其他选项"/>
+                            </TabControl>
+                        </chao:TogglePanel>
+
+                        <chao:TogglePanel Header="响应" IsSelected="False" Grid.Row="2" Style="{StaticResource RequestTogglePanel}">
+
+
+                            <TabControl  Margin="5" Background="Transparent" Style="{StaticResource FlatTabControl}" ItemContainerStyle="{StaticResource FlatTabItem}">
+                                <TabItem Header="Body" >
+                                    <ListBox  Style="{StaticResource NormalListBox}" Background="Black"  ItemContainerStyle="{StaticResource FlatListBoxItem}">
+                                        <ListBoxItem Content="id"/>
+                                        <ListBoxItem Content="id"/>
+                                        <ListBoxItem Content="id"/>
+                                    </ListBox>
+                                </TabItem>
+
+                                <TabItem Header="Headers"/>
+                                <TabItem Header="Cookies"/>
+                                <TabItem Header="其他选项"/>
+                            </TabControl>
+                        </chao:TogglePanel>
+
+                    </Grid>
+                </hc:TabItem>
+                <hc:TabItem Style="{StaticResource BaseHcTabItem}" Foreground="White"  Header="请求1"   >
+                    <Grid     Background="#1E1E1E"  />
+                </hc:TabItem>
+                <hc:TabItem Style="{StaticResource BaseHcTabItem}" Foreground="White"  Header="请求1"   >
+                    <Grid     Background="#1E1E1E"  />
+                </hc:TabItem>
+                <hc:TabItem Style="{StaticResource BaseHcTabItem}" Foreground="White"  Header="请求1"   >
+                    <Grid     Background="#1E1E1E"  />
+                </hc:TabItem>
+                <hc:TabItem Style="{StaticResource BaseHcTabItem}" Foreground="White"  Header="请求1"   >
+                    <Grid     Background="#1E1E1E"  />
+                </hc:TabItem>
+
+            </hc:TabControl>
+
+        </Grid>
+
+        <Grid Grid.Row="1" Height="20" Background="#68217A" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="任务" VerticalAlignment="Center" Margin="10 0" Foreground="White"/>
+            <Button Grid.Column="1" Style="{StaticResource BorderButton}" Background="Gray" Tag="0"  Padding="4 2" Margin="5 0">
+                <Viewbox  Width="15" Height="12"  VerticalAlignment="Center"  HorizontalAlignment="Left"     >
+                    <Path  VerticalAlignment="Center" HorizontalAlignment="Left"      Fill="White" Data="M487.834 865.448a117.866 117.866 0 0 0 98.797 53.604c41.302 0 77.707-21.342 98.797-53.604h71.556c-26.74 70.928-94.654 117.878-170.478 117.878s-143.614-46.95-170.479-117.878h71.807z m98.797-846.24c33.77 0 65.154 17.7 82.603 46.573 17.45 28.873 18.454 64.902 2.762 94.78 118.13 36.406 203.871 146.375 203.871 276.431v242.034l94.278 78.586c13.809 11.55 18.956 30.505 12.805 47.453a42.839 42.839 0 0 1-40.298 28.245H230.61c-18.077 0-34.146-11.298-40.297-28.245s-1.004-35.904 12.805-47.453l94.278-78.586V436.992c0-130.056 85.866-240.025 203.996-276.431-15.692-29.878-14.688-65.781 2.762-94.654 17.45-29 48.708-46.7 82.477-46.7z m0 192.823c-124.28 0-224.96 100.68-224.96 224.961V697.48a24.853 24.853 0 0 1-9.04 19.207l-62.893 52.474h593.787l-63.02-52.474c-5.649-4.645-8.913-11.675-8.913-19.082V436.992c0-124.281-100.805-224.961-224.96-224.961z m0-128.55c-17.7 0-32.137 14.437-32.137 32.138 0 17.7 14.437 32.137 32.137 32.137 17.701 0 32.138-14.436 32.138-32.137 0-17.7-14.437-32.137-32.138-32.137z m0 0" />
+                </Viewbox>
+            </Button>
+        </Grid>
+
+    </Grid>
+</chao:BaseWindow>

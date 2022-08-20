@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:chao="https://gitee.com/secret/chao-controls"
+                    
+                    >
+
+    <SolidColorBrush x:Key="Http.Get" >Green</SolidColorBrush>
+    <SolidColorBrush x:Key="Http.Post" >Orange</SolidColorBrush>
+    <SolidColorBrush x:Key="Http.Put" >#1662AF</SolidColorBrush>
+    <SolidColorBrush x:Key="Http.Delete" >Red</SolidColorBrush>
+
+    <SolidColorBrush x:Key="HC.TabItem.Selected.Background">#1E1E1E</SolidColorBrush>
+    <SolidColorBrush x:Key="HC.TabItem.Background">#2D2D2D</SolidColorBrush>
+
+
+</ResourceDictionary>

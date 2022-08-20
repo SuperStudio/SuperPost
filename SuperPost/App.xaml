@@ -1,0 +1,19 @@
+<Application x:Class="SuperPost.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:SuperPost" 
+             StartupUri="MainWindow.xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/ChaoControls.Style;Component/XAML/Skin/DefaultColor.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/ChaoControls.Style;Component/Themes/ChaoControls.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SuperPost;Component/Resources/XAML/Skin/DefaultSkin.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SuperPost;Component/Resources/XAML/DefaultStyle.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SuperPost;Component/Resources/XAML/TabControl.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/ChaoControls.Style;Component/XAML/CustomControls/TogglePanel.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

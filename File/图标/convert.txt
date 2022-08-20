@@ -1,0 +1,6 @@
+参考：https://docs.microsoft.com/zh-cn/windows/win32/uxguide/vis-icons
+下载：https://imagemagick.org/script/download.php#windows
+
+convert_magick SuperPost-256.png SuperPost-128.png SuperPost-64.png SuperPost-48.png SuperPost-40.png SuperPost-32.png SuperPost-24.png SuperPost-20.png SuperPost-16.png SuperPost.ico
+
+convert_magick SuperPost.png SuperPost-main.ico
